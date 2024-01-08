@@ -1,0 +1,49 @@
+{
+  "name": "open-nebel/ewallet",
+  "description": "Gestion de portfeuille électronique",
+  "minimum-stability": "dev",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "role": "Developer",
+      "name": "nebel",
+      "email": "nebel.mass@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/support": "^10.39"
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenNebel\\EWallet\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenNebel\\EWallet\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "OpenNebel\\EWallet\\PackageServiceProvider"
+      ]
+    }
+  },
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.13",
+    "orchestra/testbench": "^8.19",
+    "pestphp/pest": "^2.30",
+    "phpstan/phpstan": "^1.10"
+  }
+}
