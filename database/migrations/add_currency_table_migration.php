@@ -12,13 +12,14 @@ return new class extends Migration {
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('wallets', function (Blueprint $table) {
+        Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->morphs('owner');
-            $table->decimal('balance', 30, 2)->default(0);
-            $table->string('currency_id')->nullable();
-            $table->foreign('currency_id')->references('id')->on('currencies');
+            $table->string('code');
+            $table->string('symbol');
+            $table->decimal('rate', 10, 2)->default(0);
+            $table->boolean('status')->default(1);
+            $table->boolean('is_default')->default(0);
             $table->timestamps();
         });
 
@@ -30,6 +31,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('wallets');
+        Schema::dropIfExists('currencies');
     }
 };

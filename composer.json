@@ -28,11 +28,11 @@
   "extra": {
     "laravel": {
       "providers": [
-        "OpenNebel\\EWallet\\PackageServiceProvider"
+        "OpenNebel\\EWallet\\Providers\\PackageServiceProvider"
       ]
     }
   },
-  "prefer-stable": true,
+  "prefer-stable": false,
   "config": {
     "sort-packages": true,
     "preferred-install": "dist",
@@ -46,5 +46,18 @@
     "orchestra/testbench": "^8.19",
     "pestphp/pest": "^2.30",
     "phpstan/phpstan": "^1.10"
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/OpenNebel/Laravel-EWallet"
+    },
+    {
+      "type": "path",
+      "url": "/Users/nebel/DEV/PACKAGES/EWallet",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
 }
