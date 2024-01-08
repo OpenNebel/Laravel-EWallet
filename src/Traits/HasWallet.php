@@ -7,10 +7,6 @@ use OpenNebel\EWallet\Models\Wallet;
 
 trait HasWallet
 {
-    public function wallets()
-    {
-        return $this->morphMany(Wallet::class, 'owner');
-    }
 
     public function addWallet(Currency|int $currency): Wallet
     {
