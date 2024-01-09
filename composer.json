@@ -1,6 +1,17 @@
 {
   "name": "open-nebel/ewallet",
-  "description": "Gestion de portfeuille électronique",
+  "description": "Laravel Package to Easy work with virtual wallet",
+  "keywords": [
+    "ewallet",
+    "wallet",
+    "laravel",
+    "currency",
+    "money",
+    "payments",
+    "virtual",
+    "laravel-package",
+    "laravel-wallet"
+  ],
   "version": "0.0.1",
   "minimum-stability": "alpha",
   "type": "library",

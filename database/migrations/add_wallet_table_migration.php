@@ -17,7 +17,7 @@ return new class () extends Migration {
             $table->string('name');
             $table->morphs('owner');
             $table->decimal('balance', 30, 2)->default(0);
-            $table->foreignId('currency_id')->references('id')->on('currencies');
+            $table->foreignId('currency_id')->nullable()->constrained('currencies');
             $table->timestamps();
         });
 

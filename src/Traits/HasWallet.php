@@ -81,4 +81,14 @@ trait HasWallet
             ->where('currency_id', $currency->id)
             ->get();
     }
+
+    public function getGeneralBalance(Currency|int $currency): float
+    {
+        $currency = Helper::getCurrencyInstance($currency);
+
+        return Wallet::where('owner_id', $this->id)
+            ->where('owner_type', get_class($this))
+            ->where('currency_id', $currency->id)
+            ->sum('balance');
+    }
 }

@@ -97,15 +97,14 @@ return [
         }
     ]
 
-    // Get Wallet by wallet instance
+    // Retrieve a specific wallet
     $wallet = Wallet::find(1);
-    $user->getWallet($wallet);
-
-    // Get Wallet by wallet id
-    $user->getWallet(1);
-
-    // Get Wallet by wallet name
-    $user->getWallet("US Dollar Wallet");
+    
+    $user->getWallet($wallet); // by instance
+    
+    $user->getWallet(1); // by ID
+    
+    $user->getWallet("US Dollar Wallet"); // by name
 
     // RESULT
     {
