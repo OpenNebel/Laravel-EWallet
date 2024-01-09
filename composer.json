@@ -1,6 +1,7 @@
 {
   "name": "open-nebel/ewallet",
   "description": "Gestion de portfeuille électronique",
+  "version": "0.0.1",
   "minimum-stability": "dev",
   "type": "library",
   "license": "MIT",
@@ -28,7 +29,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "OpenNebel\\EWallet\\Providers\\PackageServiceProvider"
+        "OpenNebel\\EWallet\\Providers\\EWalletServiceProvider"
       ]
     }
   },

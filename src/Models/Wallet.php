@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Wallet extends Model
 {
 
+    protected $guarded = ['id'];
+
     public function currency(): BelongsTo
     {
         return $this->belongsTo(Currency::class);
@@ -15,6 +17,6 @@ class Wallet extends Model
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(config('wallet.owner_model'));
+        return $this->belongsTo(config('wallet.owner_model', 'App\Models\User'));
     }
 }

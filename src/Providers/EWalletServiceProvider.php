@@ -6,9 +6,8 @@ namespace OpenNebel\EWallet\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-final class PackageServiceProvider extends ServiceProvider
+final class EWalletServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any package services.
      */
