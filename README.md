@@ -62,9 +62,12 @@ return [
     
     // or Add Wallet with name and currency
     $user->addWallet(name: "Text", currency: $currency->id);
+    
+    // Or Add Wallet with balance
+    $user->addWallet(balance: 1000);
 
     $user->getWallets();
-    // Result
+    // RESULTAT
     [
         {
             "id": 1,
@@ -87,5 +90,28 @@ return [
             "updated_at": "2024-01-09T09:56:43.000000Z"
         }
     ]
+
+    // Get Wallet by wallet instance
+    $wallet = Wallet::find(1);
+    $user->getWallet($wallet);
+
+    // Get Wallet by wallet id
+    $user->getWallet(1);
+
+    // Get Wallet by wallet name
+    $user->getWallet("US Dollar Wallet");
+
+    // RESULT
+    {
+        "id": 1,
+        "name": "US Dollar Wallet",
+        "owner_type": "App\\Models\\User",
+        "owner_id": 1,
+        "balance": "0.00",
+        "currency_id": 7,
+        "created_at": "2024-01-09T09:38:25.000000Z",
+        "updated_at": "2024-01-09T09:38:25.000000Z"
+    }
+
 ```
 

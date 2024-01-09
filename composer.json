@@ -2,7 +2,7 @@
   "name": "open-nebel/ewallet",
   "description": "Gestion de portfeuille électronique",
   "version": "0.0.1",
-  "minimum-stability": "dev",
+  "minimum-stability": "alpha",
   "type": "library",
   "license": "MIT",
   "authors": [
