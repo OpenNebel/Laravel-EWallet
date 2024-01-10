@@ -4,6 +4,7 @@ namespace OpenNebel\EWallet\Interfaces;
 
 use Illuminate\Database\Eloquent\Collection;
 use OpenNebel\EWallet\Models\Currency;
+use OpenNebel\EWallet\Models\Wallet as WalletModel;
 
 interface Wallet
 {
@@ -12,24 +13,27 @@ interface Wallet
      * @param string $name
      * @param Currency|int|null $currency
      * @param float|int $balance
-     * @return \OpenNebel\EWallet\Models\Wallet
+     * @return WalletModel
      */
-    public function addWallet(string $name = "", Currency|int $currency = null, float|int $balance = 0): \OpenNebel\EWallet\Models\Wallet;
+    public function addWallet(string $name = "", Currency|int $currency = null, float|int $balance = 0): WalletModel;
 
     /**
-     * @return Collection
+     * @return Collection<int, WalletModel>
      */
     public function getWallets(): Collection;
 
     /**
-     * @param \OpenNebel\EWallet\Models\Wallet|int|string|null $wallet
+     * @param WalletModel|int|string|null $wallet
      * @return Wallet|null
      */
-    public function getWallet(\OpenNebel\EWallet\Models\Wallet|int|string|null $wallet = null): Wallet|null;
+    public function getWallet(WalletModel|int|string|null $wallet = null): WalletModel|null;
 
     /**
      * @param Currency|int $currency
-     * @return Collection
+     * @return Collection<int, WalletModel>
      */
     public function getWalletsByCurrency(Currency|int $currency): Collection;
+
+
+    public function getGeneralBalance(Currency|int $currency): float;
 }

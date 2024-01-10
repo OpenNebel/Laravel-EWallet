@@ -11,9 +11,9 @@
 |
 */
 
-use OpenNebel\EWallet\Tests\TestCase;
+use OpenNebel\EWallet\Tests\EWalletTestCase;
 
-uses(TestCase::class)->in(__DIR__);
+uses(EWalletTestCase::class)->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +26,9 @@ uses(TestCase::class)->in(__DIR__);
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+//expect()->extend('toBeOne', function () {
+//    return $this->toBe(1);
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,10 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * @return void
+ */
+function something(): void
 {
     // ..
 }

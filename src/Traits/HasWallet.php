@@ -25,7 +25,7 @@ trait HasWallet
         return Wallet::create([
             'owner_id' => $this->id,
             'owner_type' => get_class($this),
-            'currency_id' => $currency->id,
+            'currency_id' => $currency?->id,
             'balance' => $balance,
             'name' => Helper::generateWalletName($name, $currency)
         ]);

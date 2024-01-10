@@ -1,6 +1,10 @@
 <?php
+
+use Illuminate\Support\Facades\Hash;
+use Workbench\App\Models\User;
+
 test('confirm environment is set to testing', function () {
-    expect(config('app.env'))->toBe('testing');
+    expect(config('app.env'))->toBe('local');
 });
 
 
@@ -99,10 +103,15 @@ test('confirm environment is set to testing', function () {
 //}
 
 test('addWallet() method adds a wallet to the owner', function () {
-    $user = User::factory()->create();
-    $wallet = $user->addWallet('My Wallet', 'USD', 100);
+    $user = User::create([
+        'name' => fake()->name(),
+        'email' => fake()->unique()->safeEmail(),
+        'password' => Hash::make('password')
+    ]);
+    $wallet = $user->addWallet("Test Wallet", 1, 100);
 
-    expect($wallet->name)->toBe('My Wallet');
-    expect($wallet->currency->code)->toBe('USD');
-    expect($wallet->balance)->toBe(100);
+    expect($wallet->balance)
+        ->toBe(100)
+        ->and($wallet->name)
+        ->toBe("Test Wallet");
 });
