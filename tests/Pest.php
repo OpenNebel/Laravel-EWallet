@@ -11,7 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Hash;
 use OpenNebel\EWallet\Tests\EWalletTestCase;
+use Workbench\App\Models\User;
 
 uses(EWalletTestCase::class)->in(__DIR__);
 
@@ -47,4 +49,13 @@ uses(EWalletTestCase::class)->in(__DIR__);
 function something(): void
 {
     // ..
+}
+
+function GenerateUser(): User
+{
+    return  User::create([
+        'name' => fake()->name(),
+        'email' => fake()->unique()->safeEmail(),
+        'password' => Hash::make('password')
+    ]);
 }

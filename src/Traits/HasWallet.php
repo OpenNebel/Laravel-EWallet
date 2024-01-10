@@ -49,8 +49,10 @@ trait HasWallet
 
         if (is_string($wallet)) {
             $wallet = Wallet::where('name', $wallet)->first();
-        } else {
-            $wallet = $wallet instanceof Wallet ? $wallet : Wallet::findOrFail($wallet);
+        }
+
+        if (is_int($wallet)) {
+            $wallet = Wallet::findOrFail($wallet);
         }
 
         if ($wallet) {
