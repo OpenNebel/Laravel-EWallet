@@ -1,75 +1,93 @@
 {
-  "name": "open-nebel/ewallet",
-  "description": "Laravel Package to Easy work with virtual wallet",
-  "keywords": [
-    "ewallet",
-    "wallet",
-    "laravel",
-    "currency",
-    "money",
-    "payments",
-    "virtual",
-    "laravel-package",
-    "laravel-wallet"
-  ],
-  "version": "0.0.1",
-  "minimum-stability": "alpha",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "role": "Developer",
-      "name": "nebel",
-      "email": "nebel.mass@gmail.com"
-    }
-  ],
-  "require": {
-    "php": ">=8.1",
-    "illuminate/support": "^10.39"
-  },
-  "autoload": {
-    "psr-4": {
-      "OpenNebel\\EWallet\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "OpenNebel\\EWallet\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "OpenNebel\\EWallet\\Providers\\EWalletServiceProvider"
-      ]
-    }
-  },
-  "prefer-stable": false,
-  "config": {
-    "sort-packages": true,
-    "preferred-install": "dist",
-    "optimize-autoloader": true,
-    "allow-plugins": {
-      "pestphp/pest-plugin": true
-    }
-  },
-  "require-dev": {
-    "laravel/pint": "^1.13",
-    "orchestra/testbench": "^8.19",
-    "pestphp/pest": "^2.30",
-    "phpstan/phpstan": "^1.10"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/OpenNebel/Laravel-EWallet"
+    "name": "open-nebel/ewallet",
+    "description": "Laravel Package to Easy work with virtual wallet",
+    "keywords": [
+        "ewallet",
+        "wallet",
+        "laravel",
+        "currency",
+        "money",
+        "payments",
+        "virtual",
+        "laravel-package",
+        "laravel-wallet"
+    ],
+    "version": "0.0.1",
+    "minimum-stability": "alpha",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "nebel",
+            "email": "nebel.mass@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "illuminate/support": "^10.39"
     },
-    {
-      "type": "path",
-      "url": "/Users/nebel/DEV/PACKAGES/EWallet",
-      "options": {
-        "symlink": true
-      }
+    "autoload": {
+        "psr-4": {
+            "OpenNebel\\EWallet\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenNebel\\EWallet\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenNebel\\EWallet\\Providers\\EWalletServiceProvider"
+            ]
+        }
+    },
+    "prefer-stable": false,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "orchestra/testbench": "^8.19",
+        "pestphp/pest": "^2.30",
+        "pestphp/pest-plugin-laravel": "^2.2",
+        "phpstan/phpstan": "^1.10"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/OpenNebel/Laravel-EWallet"
+        }
+    ],
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "test": [
+            "@php vendor/bin/pest"
+        ]
     }
-  ]
 }

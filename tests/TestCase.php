@@ -2,9 +2,15 @@
 
 namespace OpenNebel\EWallet\Tests;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
+use OpenNebel\EWallet\Providers\EWalletServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
-abstract class TestCase extends BaseTestCase
+class TestCase extends Orchestra
 {
-    //
+    protected function getPackageProviders($app): array
+    {
+        return [
+            EWalletServiceProvider::class,
+        ];
+    }
 }
